@@ -1,0 +1,16 @@
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Service.deps.json
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Service.dll
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Service.pdb
+D:\Project\CORE\CORE.Service\obj\Debug\netcoreapp3.1\CORE.Service.csprojAssemblyReference.cache
+D:\Project\CORE\CORE.Service\obj\Debug\netcoreapp3.1\CORE.Service.AssemblyInfoInputs.cache
+D:\Project\CORE\CORE.Service\obj\Debug\netcoreapp3.1\CORE.Service.AssemblyInfo.cs
+D:\Project\CORE\CORE.Service\obj\Debug\netcoreapp3.1\CORE.Service.dll
+D:\Project\CORE\CORE.Service\obj\Debug\netcoreapp3.1\CORE.Service.pdb
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Data.dll
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Domain.dll
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Utility.dll
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Data.pdb
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Domain.pdb
+D:\Project\CORE\CORE.Service\bin\Debug\netcoreapp3.1\CORE.Utility.pdb
+D:\Project\CORE\CORE.Service\obj\Debug\netcoreapp3.1\CORE.Service.csproj.CopyComplete
+D:\Project\CORE\CORE.Service\obj\Debug\netcoreapp3.1\CORE.Service.csproj.CoreCompileInputs.cache

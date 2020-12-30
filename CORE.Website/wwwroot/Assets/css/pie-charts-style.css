@@ -1,0 +1,59 @@
+.chart {
+  position: relative;
+  display: inline-block;
+  width: 171px;
+  height: 171px;
+  margin: 50px 0 50px 0;
+  text-align: center;
+}
+.chart.first{ margin-left:0;}
+.chart canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.percent {
+  display: inline-block;
+  line-height: 170px;
+  z-index: 2;
+  font-size:30px;
+  font-weight: 300;
+}
+.percent:after {
+  content: '%';
+  margin-left: 0.1em;
+  font-size: .8em;
+}
+.angular {
+  margin-top: 100px;
+}
+.angular .chart {
+  margin-top: 0;
+}
+.skill-name{
+	bottom: -50px;
+    font-size: 26px;
+    font-weight: 300;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+
+
+
+/********************/
+
+.green-circle, .yellow-circle, .purple-circle, .red-circle {
+  position: relative;
+  display: inline-block;
+  width: 171px;
+  height: 171px;
+   margin: 50px 0 50px 74px; 
+  text-align: center;
+}
+.green-circle canvas, .yellow-circle canvas, .purple-circle canvas, .red-circle canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

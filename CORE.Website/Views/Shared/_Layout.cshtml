@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    @await Component.InvokeAsync("SeoTitle")
+    <partial name="_CssPartial.cshtml" />
+    <partial name="_ScriptPartial.cshtml" />
+</head>
+
+<body class="fixed-header site com_blue_pagebuilder view-page no-layout no-task itemid-101 fluid btlight "
+      data-offset="25"
+      data-spy="scroll" data-target=".navbar">
+    @*@await Component.InvokeAsync("Loader")*@
+    @await Component.InvokeAsync("FBEmbed")    
+    <div id="wrapper" class="wrapper">
+        <div id="wrapper_container" class="container-fluid">
+            <div class="row">
+                @await Component.InvokeAsync("Header")
+                @RenderBody()
+                @await Component.InvokeAsync("Footer")
+            </div>
+        </div>
+    </div>
+    <a href="#." class="back-to-top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

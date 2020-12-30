@@ -1,0 +1,189 @@
+﻿@model PricingModel
+@{
+    var title = !string.IsNullOrEmpty(Model.Id) ? $"Chỉnh sửa bảng giá - {Model.Name}" : $"Tạo mới bảng giá";
+    ViewBag.Title = title;
+
+}
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>@title</h5>
+                    </div>
+                    <form class="form theme-form">
+                        <div class="card-body">
+                            <div class="row" style="display:none">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <input class="form-control" id="txtId" type="hidden" value="@Model.Id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Tên bảng giá: </label>
+                                        <input class="form-control" id="txtName" type="text" placeholder="Nhập vào tên bảng giá..." value="@Model.Name">
+                                    </div>
+                                </div>
+                            </div>                        
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Avatar (width: 757px - height: 368px): </label>
+                                       <input class="form-control" type="file" id="files"  accept=".gif,.jpg,.jpeg,.png"  />
+                                       <input id="txtImageId" type="hidden" value="@Model.ImageId"  />
+                                       <img id="render-logo" width="100" height="100" src="@Model.ImageUrl" style="margin-top:10px;margin-left: 10px;@(string.IsNullOrWhiteSpace(Model.ImageUrl) ? "display:none" : "")"  />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Nội dung ngắn: </label>
+                                        <input class="form-control" id="txtShortDescription" type="text" placeholder="Nhập vào mô tả ngắn...." value="@Model.ShortDescription">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Nội dung: </label>
+                                        <textarea class="form-control" id="txtDescription" name="txtDescription" >@Model.Description</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="media-body icon-state switch-outline">
+                                    <div class="col">
+                                        <label class="switch">
+                                            <input type="checkbox" id="chkPublished" @(Model.Published ?"checked":"")><span class="switch-state bg-success"></span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary btn-float-left" id="btn-save">@(!string.IsNullOrWhiteSpace(Model.Id) ? "Lưu" : "Tạo mới")</button>
+                            <a href="/Admin/Pricing" class="btn btn-danger btn-float-right" id="btn-back">Quay lại</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>
+
+@section Scripts{
+
+
+    <script>
+
+        function initData() {
+            CKEDITOR.replace('txtDescription');
+        }
+        initData();
+
+        function ValidData() {
+            var fields = [
+                { Id: '#txtName', Title: "''Tên bảng giá''" },
+                { Id: '#txtImageId', Title: "''Avatar''" }
+                //{ Id: '#txtDescription', Title: "''Nội dung''"}
+            ];
+            var check = true;
+            $.each(fields, function (index, value) {
+                $(value.Id).css('border-color', '#efefef');
+                if ($(value.Id).val() == '' || $(value.Id).val() == null) {
+                    check = false;
+                    $(value.Id).css('border-color', 'red');
+                    alertify.error('Không được để trống ' + value.Title);
+                }
+            });
+            return check;
+        }
+
+        function SaveData() {
+            var model = {
+                Id: $('#txtId').val(),
+                Name: $('#txtName').val(),
+                ImageId: $('#txtImageId').val(),
+                ShortDescription: $('#txtShortDescription').val(),
+                Description: CKEDITOR.instances['txtDescription'].getData(),
+                Published: $('#chkPublished').is(":checked"),
+            };
+            var dataJson = JSON.stringify(model);
+
+            $.ajax({
+                type: "POST",
+                url: '/Admin/Pricing/AddOrUpdatePricing',
+                data: { dataJson: dataJson },
+                success: function (res) {
+                    if (res.status) {
+                        alertify.success(res.message);
+                        setTimeout(() => {
+                            window.location.href = '/Admin/Pricing';
+                        }, 1000)
+                    }
+                    else {
+                        alertify.error(res.message);
+                    }
+                },
+                dataType: 'JSON'
+            });
+        }
+        $(document).ready(function () {
+            $('#btn-save').click(function (e) {
+                e.preventDefault();
+                if (!ValidData())
+                    return;
+                alertify.confirm('Thông báo', 'Chắc chắn muốn lưu dữ liệu ?', function () { SaveData(); }
+                    , function () { });
+            });
+
+
+            $('#files').change(function (e) {
+                e.preventDefault();
+                var fileUpload = $("#files").get(0);
+                var formData = new FormData();
+
+                var files = fileUpload.files;
+                formData.append(files[0].name, files[0]);
+
+                $.ajax({
+                    url: "/Admin/Media/UploadDocument",
+                    type: "POST",
+                    dataType: "json",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    async: false,
+                    beforeSend: function () {
+                        //$("#divloader").show()
+                    },
+                    success: function (res) {
+                        console.log(res);
+                        if (res.status) {
+                            alertify.success(res.message);
+                            var resData = JSON.parse(res.data);
+                            $('#render-logo').attr('src', resData.FileUrl);
+                            $('#txtImageId').val(resData.Id);
+                            $('#render-logo').css('display', 'block');
+                        } else {
+                            alertify.error(res.message);
+                            $('#render-logo').css('display', 'none');
+                            $('#render-logo').css('src', '');
+                        }
+                    },
+                    error: function () {
+                        alertify.success('Có lỗi xảy ra trong quá trình upload');
+
+                    },
+                })
+            });
+        });
+    </script>
+}

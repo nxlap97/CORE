@@ -1,0 +1,48 @@
+﻿
+
+<div class="modal fade" id="ModelAddOrEdit" tabindex="-1" role="dialog" aria-labelledby="ModelAddOrEdit" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="CategoryModelTitle">{{Title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="txtId" />
+                <div class="row">
+                    <div class="col-md-3">
+                        <span>Tên danh mục</span>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtName" placeholder="Tên danh mục..." />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <span>Hiển thị </span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="media-body icon-state switch-outline">
+                            <div class="col">
+                                <label class="switch">
+                                    <input type="checkbox" id="chkPublished"><span class="switch-state bg-success"></span>
+                                </label>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary btn-save"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+ 
+}

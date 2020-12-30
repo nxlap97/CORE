@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "name": "Assasin",
+    "token_image": "/katana-zero/assasin.png",
+    "grade_text": "Common",
+    "effect": "Initial buffrate increased from 1.2 to 1.4"
+  },
+  {
+    "id": 2,
+    "name": "Clown",
+    "token_image": "/katana-zero/clown.png",
+    "grade_text": "Rare",
+    "effect": "Initial buffrate increased to from 1.5 to 1.8"
+  },
+  {
+    "id": 3,
+    "name": "DJ Electrohead",
+    "token_image": "/katana-zero/DJelectrohead.png",
+    "grade_text": "Epic",
+    "effect": "Initial buffrate increased from 1.9 to 2.4"
+  },
+  {
+    "id": 4,
+    "name": "Doctor",
+    "token_image": "/katana-zero/Doctor.png",
+    "grade_text": "Legendary",
+    "effect": "Initial buffrate increased from 2.4 to 2.9"
+  },
+  {
+    "id": 5,
+    "name": "Grim",
+    "token_image": "/katana-zero/grim.png",
+    "grade_text": "Transcendent",
+    "effect": "Initial buffrate increased from 3.0 to 3.4"
+  },
+  {
+    "id": 6,
+    "name": "Josh Rose",
+    "token_image": "/katana-zero/JoshRose.png",
+    "grade_text": "Common",
+    "effect": "Buffrate refresh increased from 55% to 59%"
+  },
+  {
+    "id": 7,
+    "name": "KID",
+    "token_image": "/katana-zero/KID.png",
+    "grade_text": "Rare",
+    "effect": "Buffrate refresh increased from 60% to 69%"
+  },
+  {
+    "id": 8,
+    "name": "LEON",
+    "token_image": "/katana-zero/LEON.png",
+    "grade_text": "Epic",
+    "effect": "Buffrate refresh increased from 70% to 85%"
+  },
+  {
+    "id": 9,
+    "name": "Mr Kissy Face",
+    "token_image": "/katana-zero/MrKissyFace.png",
+    "grade_text": "Legendary",
+    "effect": "Buffrate refresh increased from 85% to 104%"
+  },
+  {
+    "id": 10,
+    "name": "NEIGHBOR GIRL",
+    "token_image": "/katana-zero/NEIGHBORGIRL.png",
+    "grade_text": "Transcendent",
+    "effect": "Buffrate refresh increased from 105% - 130%"
+  },
+  {
+    "id": 11,
+    "name": "Omar",
+    "token_image": "/katana-zero/Omar.png",
+    "types": 3,
+    "grade": 1,
+    "grade_text": "Common",
+    "effect": "Maximum buffrate increased to 3.5"
+  },
+  {
+    "id": 12,
+    "name": "Scientist",
+    "token_image": "/katana-zero/Scientist.png",
+    "grade_text": "Rare",
+    "effect": "Maximum buffrate increased to 4.2"
+  },
+  {
+    "id": 13,
+    "name": "THE DRAGON",
+    "token_image": "THEDRAGON.png",
+    "grade_text": "Epic",
+    "effect": "Maximum buffrate increased to 5.6"
+  },
+  {
+    "id": 14,
+    "name": "SNOW",
+    "token_image": "/katana-zero/SNOW.png",
+    "grade_text": "Legendary",
+    "effect": "Maximum buffrate increased to 7.2"
+  },
+  {
+    "id": 15,
+    "name": "ZERO",
+    "token_image": "/katana-zero/ZERO.png",
+    "grade_text": "Transcendent",
+    "effect": "Maximum buffrate increased to 9.0"
+  }
+]

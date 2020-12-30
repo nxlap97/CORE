@@ -1,0 +1,120 @@
+﻿@model List<PricingModel>
+@{
+    ViewBag.Title = "DANH SÁCH BẢNG GIÁ";
+}
+
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>DANH SÁCH BẢNG GIÁ</h5>
+                    </div>
+                    <div class="table-responsive">
+                        <div class="div-control-table">
+                            <a class="btn btn-sm btn-primary" href="/Admin/Pricing/AddOrUpdate"><i class="icon-plus"></i></a>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="3%">STT</th>
+                                    <th scope="col" width="25%">TÊN BẢNG GIÁ</th>
+                                    <th scope="col" width="5%">AVATAR</th>
+                                    <th scope="col" width="10%">TRẠNG THÁI</th>
+                                    <th scope="col" width="15%">#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var indexOf = Model.IndexOf(item) + 1;
+                                    <tr>
+                                        <th scope="row">@indexOf</th>
+                                        <td>@item.Name</td>
+                                        <td><img width="50" src="@item.ImageUrl" /></td>
+                                        <td style="text-align:center">@Html.Raw(!item.Published ? "<b class='text-danger' ><i class='icon-lock'><i></b>" : "<b class='text-primary'><i class='icon-unlock'><i></b>")</td>
+                                        <td class="tbl-action">
+                                            <a class="btn btn-sm btn-primary" href="/Admin/Pricing/AddOrUpdate/@item.Id"><i class="icon-pencil-alt"></i></a>
+                                            &nbsp;
+                                            <a class="btn btn-sm btn-danger btn-remove" data-id="@item.Id"><i class="icon-trash"></i></a>
+                                            @*&nbsp;
+                                                <a class="btn btn-sm btn-success"><i class="icon-desktop"></i></a>*@
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+        function SaveData() {
+            var model = {
+                Id: $('#txtId').val(),
+                Name: $('#txtName').val(),
+                ImageId: $('#txtImageId').val(),
+                ShortDescription: $('#txtShortDescription').val(),
+                Description: CKEDITOR.instances['txtDescription'].getData(),
+                Published: $('#chkPublished').is(":checked"),
+            };
+            var dataJson = JSON.stringify(model);
+
+            $.ajax({
+                type: "POST",
+                url: '/Admin/Pricing/AddOrUpdateBlog',
+                data: { dataJson: dataJson },
+                success: function (res) {
+                    if (res.status) {
+                        alertify.success(res.message);
+                        setTimeout(() => {
+                            window.location.href = '/Admin/Pricing';
+                        }, 1000)
+                    }
+                    else {
+                        alertify.error(res.message);
+                    }
+                },
+                dataType: 'JSON'
+            });
+        }
+
+        function RemoveData(selector) {
+            var id = selector.data('id');
+            var lstId = [];
+            lstId.push(id);
+            var ids = JSON.stringify(lstId);
+            $.ajax({
+                type: "POST",
+                url: '/Admin/Pricing/Delete',
+                data: { ids: ids },
+                success: function (res) {
+                    if (res.status) {
+                        alertify.success(res.message);
+                        selector.parent().parent().remove();
+                    }
+                    else
+                        alertify.error(res.message);
+                },
+                dataType: 'JSON'
+            });
+        }
+
+        $(document).ready(function () {
+            $('.btn-remove').click(function (e) {
+                e.preventDefault();
+                var selector = $(this);
+                alertify.confirm('Thông báo', 'Chắc chắn muốn xóa dữ liệu này ?', function () {
+                    RemoveData(selector);
+                }, function () { });
+            });
+        });
+    </script>
+}

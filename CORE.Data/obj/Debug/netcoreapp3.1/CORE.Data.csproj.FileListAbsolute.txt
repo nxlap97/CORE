@@ -1,0 +1,17 @@
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Data.deps.json
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Data.dll
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Data.pdb
+D:\Project\CORE\CORE.Data\obj\Debug\netcoreapp3.1\CORE.Data.csprojAssemblyReference.cache
+D:\Project\CORE\CORE.Data\obj\Debug\netcoreapp3.1\CORE.Data.AssemblyInfoInputs.cache
+D:\Project\CORE\CORE.Data\obj\Debug\netcoreapp3.1\CORE.Data.AssemblyInfo.cs
+D:\Project\CORE\CORE.Data\obj\Debug\netcoreapp3.1\CORE.Data.dll
+D:\Project\CORE\CORE.Data\obj\Debug\netcoreapp3.1\CORE.Data.pdb
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Data.runtimeconfig.json
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Data.runtimeconfig.dev.json
+D:\Project\CORE\CORE.Data\obj\Debug\netcoreapp3.1\CORE.Data.genruntimeconfig.cache
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Domain.dll
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Utility.dll
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Domain.pdb
+D:\Project\CORE\CORE.Data\bin\Debug\netcoreapp3.1\CORE.Utility.pdb
+D:\Project\CORE\CORE.Data\obj\Debug\netcoreapp3.1\CORE.Data.csproj.CoreCompileInputs.cache
+D:\Project\CORE\CORE.Data\obj\Debug\netcoreapp3.1\CORE.Data.csproj.CopyComplete

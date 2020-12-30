@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "Rank Rune",
+    "description": "Different sailors were given different ranks... which came with privileges, of course.",
+    "token_image": "https://api.narwhalswap.org/rune/image/1.png",
+    "types": 1,
+    "grade": 1,
+    "grade_text": "Common",
+    "effect": "Initial buffrate increased to 1.2"
+  },
+  {
+    "id": 2,
+    "name": "Rank Rune",
+    "description": "Different sailors were given different ranks... which came with privileges, of course.",
+    "token_image": "https://api.narwhalswap.org/rune/image/2.png",
+    "types": 1,
+    "grade": 2,
+    "grade_text": "Rare",
+    "effect": "Initial buffrate increased to 1.5"
+  },
+  {
+    "id": 3,
+    "name": "Rank Rune",
+    "description": "Different sailors were given different ranks... which came with privileges, of course.",
+    "token_image": "https://api.narwhalswap.org/rune/image/3.png",
+    "types": 1,
+    "grade": 3,
+    "grade_text": "Epic",
+    "effect": "Initial buffrate increased to 1.9"
+  },
+  {
+    "id": 4,
+    "name": "Rank Rune",
+    "description": "Different sailors were given different ranks... which came with privileges, of course.",
+    "token_image": "https://api.narwhalswap.org/rune/image/4.png",
+    "types": 1,
+    "grade": 4,
+    "grade_text": "Legendary",
+    "effect": "Initial buffrate increased to 2.4"
+  },
+  {
+    "id": 5,
+    "name": "Rank Rune",
+    "description": "Different sailors were given different ranks... which came with privileges, of course.",
+    "token_image": "https://api.narwhalswap.org/rune/image/5.png",
+    "types": 1,
+    "grade": 5,
+    "grade_text": "Transcendent",
+    "effect": "Initial buffrate increased to 3.0"
+  },
+  {
+    "id": 6,
+    "name": "Potion Rune",
+    "description": "A strange elixir found in the seas of NAR provides a boost for sailors who brave its waves.",
+    "token_image": "https://api.narwhalswap.org/rune/image/6.png",
+    "types": 2,
+    "grade": 1,
+    "grade_text": "Common",
+    "effect": "Buffrate refresh increased to 55%"
+  },
+  {
+    "id": 7,
+    "name": "Potion Rune",
+    "description": "A strange elixir found in the seas of NAR provides a boost for sailors who brave its waves.",
+    "token_image": "https://api.narwhalswap.org/rune/image/7.png",
+    "types": 2,
+    "grade": 2,
+    "grade_text": "Rare",
+    "effect": "Buffrate refresh increased to 60%"
+  },
+  {
+    "id": 8,
+    "name": "Potion Rune",
+    "description": "A strange elixir found in the seas of NAR provides a boost for sailors who brave its waves.",
+    "token_image": "https://api.narwhalswap.org/rune/image/8.png",
+    "types": 2,
+    "grade": 3,
+    "grade_text": "Epic",
+    "effect": "Buffrate refresh increased to 70%"
+  },
+  {
+    "id": 9,
+    "name": "Potion Rune",
+    "description": "A strange elixir found in the seas of NAR provides a boost for sailors who brave its waves.",
+    "token_image": "https://api.narwhalswap.org/rune/image/9.png",
+    "types": 2,
+    "grade": 4,
+    "grade_text": "Legendary",
+    "effect": "Buffrate refresh increased to 85%"
+  },
+  {
+    "id": 10,
+    "name": "Potion Rune",
+    "description": "A strange elixir found in the seas of NAR provides a boost for sailors who brave its waves.",
+    "token_image": "https://api.narwhalswap.org/rune/image/10.png",
+    "types": 2,
+    "grade": 5,
+    "grade_text": "Transcendent",
+    "effect": "Buffrate refresh increased to 105%"
+  },
+  {
+    "id": 11,
+    "name": "Refine Rune",
+    "description": "In the NAR-oceans, the better your skills, the better your rewards.",
+    "token_image": "https://api.narwhalswap.org/rune/image/11.png",
+    "types": 3,
+    "grade": 1,
+    "grade_text": "Common",
+    "effect": "Maximum buffrate increased to 3.5"
+  },
+  {
+    "id": 12,
+    "name": "Refine Rune",
+    "description": "In the NAR-oceans, the better your skills, the better your rewards.",
+    "token_image": "https://api.narwhalswap.org/rune/image/12.png",
+    "types": 3,
+    "grade": 2,
+    "grade_text": "Rare",
+    "effect": "Maximum buffrate increased to 4.2"
+  },
+  {
+    "id": 13,
+    "name": "Refine Rune",
+    "description": "In the NAR-oceans, the better your skills, the better your rewards.",
+    "token_image": "https://api.narwhalswap.org/rune/image/13.png",
+    "types": 3,
+    "grade": 3,
+    "grade_text": "Epic",
+    "effect": "Maximum buffrate increased to 5.6"
+  },
+  {
+    "id": 14,
+    "name": "Refine Rune",
+    "description": "In the NAR-oceans, the better your skills, the better your rewards.",
+    "token_image": "https://api.narwhalswap.org/rune/image/14.png",
+    "types": 3,
+    "grade": 4,
+    "grade_text": "Legendary",
+    "effect": "Maximum buffrate increased to 7.2"
+  },
+  {
+    "id": 15,
+    "name": "Refine Rune",
+    "description": "In the NAR-oceans, the better your skills, the better your rewards.",
+    "token_image": "https://api.narwhalswap.org/rune/image/15.png",
+    "types": 3,
+    "grade": 5,
+    "grade_text": "Transcendent",
+    "effect": "Maximum buffrate increased to 9.0"
+  }
+]

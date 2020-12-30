@@ -1,0 +1,42 @@
+﻿.div-control-table
+{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+
+.card .card-header {
+    background-color: #fff;
+     padding: 10px; 
+    
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.card .card-body {
+    padding: 10px;
+    background-color: transparent;
+}
+
+.btn-float-right{
+    float:right;
+}
+
+.btn-float-left{
+    float:left;
+}
+
+.card .card-footer {
+    padding: 10px;
+}
+
+.tbl-action .btn, .div-control-table .btn {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#ModelAddOrEdit .modal-dialog {
+    max-width: 70%;
+}

@@ -1,0 +1,177 @@
+﻿@model List<CategoryModel>
+@{
+    ViewBag.Title = "DANH MỤC BÀI VIẾT";
+}
+
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>DANH SÁCH DANH MỤC BÀI VIẾT</h5>
+                    </div>
+                    <div class="table-responsive">
+                        <div class="div-control-table">
+                            <button class="btn btn-sm btn-primary btn-add" data-toggle="modal" data-target="#ModelAddOrEdit">
+                                <i class="icon-plus"></i>
+                            </button>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="3%">STT</th>
+                                    <th scope="col" width="25%">TÊN DANH MỤC</th>
+                                    <th scope="col" width="25%">NGÀY TẠO</th>
+                                    <th scope="col" width="10%">TRẠNG THÁI</th>
+                                    <th scope="col" width="15%">#</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl-result-body">
+                                @foreach (var item in Model)
+                                {
+                                    var indexOf = Model.IndexOf(item) + 1;
+                                    <tr>
+                                        <th scope="row">@indexOf</th>
+                                        <td>@item.Name</td>
+                                        <td>@item.CreatedDate?.ToString("dd-MM-yyyy")</td>
+                                        <td style="text-align:center">@Html.Raw(!item.Published ? "<b class='text-danger' ><i class='icon-lock'><i></b>" : "<b class='text-primary'><i class='icon-unlock'><i></b>")</td>
+                                        <td class="tbl-action">
+                                            <button class="btn btn-sm btn-primary btn-edit" data-id="@item.Id" data-name="@item.Name" data-published="@item.Published"><i class="icon-pencil-alt"></i></button>
+                                            &nbsp;
+                                            <button class="btn btn-sm btn-danger btn-remove" data-id="@item.Id">
+                                                <i class="icon-trash"></i></button>
+                                                @*&nbsp;
+        <a class="btn btn-sm btn-success"><i class="icon-desktop"></i></a>*@
+</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="_AddOrUpdatePartial.cshtml" />
+
+
+
+@section Scripts{
+    <script>
+        function resetModal() {
+            $(IDModel + ' #txtId').val('');
+            $(IDModel + ' #txtName').val('');
+            $(IDModel + ' #chkPublished').attr('checked', 'checked');
+        }
+
+        function RemoveData(selector) {
+            var id = selector.data('id');
+            var lstId = [];
+            lstId.push(id);
+            var ids = JSON.stringify(lstId);
+            $.ajax({
+                type: "POST",
+                url: '/Admin/Category/Delete',
+                data: { ids: ids },
+                success: function (res) {
+                    if (res.status) {
+                        alertify.success(res.message);
+                        selector.parent().parent().remove();
+                    }
+                    else
+                        alertify.error(res.message);
+                },
+                dataType: 'JSON'
+            });
+        }
+
+        function refreshTable(lstData) {
+            $('#tbl-result-body').html();
+            var tmp = "";
+            $.each(lstData, function (index, value) {
+                tmp +=
+                             `<tr>
+                                        <th scope="row">${index+1}</th>
+                                        <td>${value.Name}</td>
+                                        <td>${value.CreatedDateStr}</td>
+                                        <td style="text-align:center">${!value.Published ? "<b class='text-danger' ><i class='icon-lock'><i></b>" : "<b class='text-primary'><i class='icon-unlock'><i></b>"}</td>
+                                        <td class="tbl-action">
+                                            <button class="btn btn-sm btn-primary btn-edit" data-id="${value.Id}" data-name="${value.Name}" data-published="${value.Published}"><i class="icon-pencil-alt"></i></button>
+                                            &nbsp;
+                                            <button class="btn btn-sm btn-danger btn-remove" data-id="${value.Id}">
+                                                <i class="icon-trash"></i></button>
+                                          </td>
+                                    </tr>`;
+
+            });
+            $('#tbl-result-body').html(tmp);
+        }
+
+        var IDModel = '#ModelAddOrEdit';
+
+        $(document).ready(function () {
+            $('.btn-add').click(function () {
+                resetModal();
+                $(IDModel +' .modal-title').text('Tạo mới danh mục');
+                $(IDModel +' .btn-save').text('Tạo mới');
+            });
+
+            $('body').on('click', '.btn-edit', function () {
+                $(IDModel).modal('show');
+
+                $(IDModel + ' .modal-title').text('Chỉnh sửa danh mục - ' + $(this).data('name'));
+                $(IDModel + ' .btn-save').text('Lưu');
+                $(IDModel + ' #txtId').val($(this).data('id'));
+                $(IDModel + ' #txtName').val($(this).data('name'));
+                console.log($(this).data('published'))
+                var checked = $(this).data('published') ? 'checked' : '';
+                $(IDModel + ' #chkPublished').prop('checked', $(this).data('published'));
+            });
+
+            $('body').on('click', '.btn-remove', function (e) {
+                e.preventDefault();
+                var selector = $(this);
+                alertify.confirm('Thông báo', 'Chắc chắn muốn xóa dữ liệu này ?', function () {
+                    RemoveData(selector);
+                }, function () { });
+            });
+
+        });
+
+    $(document).ready(function () {
+
+        $(IDModel+' .btn-save').click(function () {
+
+            var model = {
+                Id: $(IDModel + ' #txtId').val(),
+                Name: $(IDModel + ' #txtName').val(),
+                Published: $(IDModel +' #chkPublished').is(":checked")
+            };
+
+            var dataJson = JSON.stringify(model);
+            $.ajax({
+                type: "POST",
+                url: '/Admin/Category/AddOrUpdateCategory',
+                data: { dataJson: dataJson },
+                success: function (res) {
+                    if (res.status) {
+                        alertify.success(res.message);
+                        $(IDModel + ' .btn-close').click();
+                        var lst = JSON.parse(res.data);
+                        refreshTable(lst);
+                    }
+                    else {
+                        alertify.error(res.message);
+                    }
+                },
+                dataType: 'JSON'
+            });
+        });
+
+    });
+    </script>
+}

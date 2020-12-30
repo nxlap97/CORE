@@ -1,0 +1,26 @@
+﻿footer p, footer h4 {
+    color: white;
+}
+
+footer  .footer-col-info {
+    text-align: left;
+}
+
+footer .footer-col-map {
+    text-align: left;
+}
+
+footer .footer-col-fb {
+    text-align: left;
+}
+
+    footer h4 {
+        display: inline;
+            line-height: 2.5;
+            font-weight: bold;
+    }
+    footer .footer-col-info span {
+        display: inline
+    }
+
+
